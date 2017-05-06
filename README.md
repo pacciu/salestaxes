@@ -1,5 +1,6 @@
 # salestaxes
 Test exercise.
+
 WARNING: at version 1.0.0 it could be run only with activeProfile mock. There is no default implementation for TaxRepository.
 
 PROBLEM: SALES TAXES
@@ -17,9 +18,11 @@ paid. The rounding rules for sales tax are that for a tax rate of n%, a shelf pr
 - items with sales taxes
 - items with both duty and sales taxes
 - items with no taxes
+
 There is also an happy test having a shopping basket with:
 - an item with quantity 2
 - all items with no taxes
+
 There is a bad test with an item with negative price and shoulds throw a [Negative Price Exception](src/main/java/com/lastminute/marcoluly/exceptions/NotNegativePriceException.java)
 
 ### Travis Build Status
