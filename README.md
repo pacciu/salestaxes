@@ -29,4 +29,4 @@ There is also an happy test having a shopping basket with:
 - an item with quantity 2
 - all items with no taxes
 
-Thus, there is a bad test with an item with negative price and shoulds throw a [Negative Price Exception](src/main/java/com/lastminute/marcoluly/exceptions/NotNegativePriceException.java)
+Furthermore, there is a bad test with an item with negative price and shoulds throw a [Negative Price Exception](src/main/java/com/lastminute/marcoluly/exceptions/NotNegativePriceException.java)
