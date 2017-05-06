@@ -62,7 +62,10 @@ public class ProductServiceImpl implements ProductService, InitializingBean {
 			if (price < 0) {
 				final NotNegativePriceException cause = new NotNegativePriceException(
 						"Product " + product.getDescription() + " has price < 0 [" + price + "]");
-				log.error("Error on creating receipt", cause);
+				log.error(cause.getMessage());
+				if (log.isDebugEnabled()) {
+					log.debug("Error on creating receipt", cause);
+				}
 				throw new RuntimeException(cause);
 			}
 			final BigDecimal calculatePercent = calculatePercent(product);

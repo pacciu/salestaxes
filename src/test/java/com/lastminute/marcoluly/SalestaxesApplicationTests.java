@@ -189,55 +189,57 @@ public class SalestaxesApplicationTests {
 
 		log.info("*****TEST START*****");
 
-		log.info("Printing input:");
+		try {
+			log.info("Printing input:");
 
-		final List<Product> listInput = Lists.newArrayList();
+			final List<Product> listInput = Lists.newArrayList();
 
-		itemsQuantity.keySet().stream().forEach(productId -> {
-			final Product product = dataset.get(productId);
-			assertNotNull(product);
-			final Integer quantity = itemsQuantity.get(productId);
-			log.info(prettyPrintOutput(quantity, product.getDescription(), product.getPrice()));
-			for (int i = 0; i < quantity; i++) {
-				listInput.add(product);
-			}
-		});
+			itemsQuantity.keySet().stream().forEach(productId -> {
+				final Product product = dataset.get(productId);
+				assertNotNull(product);
+				final Integer quantity = itemsQuantity.get(productId);
+				log.info(prettyPrintOutput(quantity, product.getDescription(), product.getPrice()));
+				for (int i = 0; i < quantity; i++) {
+					listInput.add(product);
+				}
+			});
 
-		// WHEN
-		final Receipt output = productService.createReceipt(listInput);
+			// WHEN
+			final Receipt output = productService.createReceipt(listInput);
 
-		// THEN
-		assertNotNull(output);
-		final Map<Integer, ProductWithFinalPrice> productWithFinalPrices = output.getProductWithFinalPrices();
-		assertNotNull(productWithFinalPrices);
-		assertEquals(itemsExpectedResults.size(), productWithFinalPrices.size());
+			// THEN
+			assertNotNull(output);
+			final Map<Integer, ProductWithFinalPrice> productWithFinalPrices = output.getProductWithFinalPrices();
+			assertNotNull(productWithFinalPrices);
+			assertEquals(itemsExpectedResults.size(), productWithFinalPrices.size());
 
-		log.info("Printing output:");
+			log.info("Printing output:");
 
-		productWithFinalPrices.values().stream().forEach(productWithFinalPrice -> {
-			final Product product = productWithFinalPrice.getProduct();
-			assertNotNull(product);
-			final Integer productId = product.getId();
-			assert (itemsExpectedResults.containsKey(productId));
-			assert (itemsQuantity.containsKey(productId));
-			assertEquals(itemsExpectedResults.get(productId), productWithFinalPrice.getFinalPrice());
-			assertEquals(itemsQuantity.get(productId), productWithFinalPrice.getQuantity());
-			log.info(prettyPrintOutput(productWithFinalPrice.getQuantity(), product.getDescription(),
-					productWithFinalPrice.getFinalPrice().doubleValue()));
-		});
+			productWithFinalPrices.values().stream().forEach(productWithFinalPrice -> {
+				final Product product = productWithFinalPrice.getProduct();
+				assertNotNull(product);
+				final Integer productId = product.getId();
+				assert (itemsExpectedResults.containsKey(productId));
+				assert (itemsQuantity.containsKey(productId));
+				assertEquals(itemsExpectedResults.get(productId), productWithFinalPrice.getFinalPrice());
+				assertEquals(itemsQuantity.get(productId), productWithFinalPrice.getQuantity());
+				log.info(prettyPrintOutput(productWithFinalPrice.getQuantity(), product.getDescription(),
+						productWithFinalPrice.getFinalPrice().doubleValue()));
+			});
 
-		final BigDecimal totalSalesTaxes = output.getTotalSalesTaxes();
-		assertEquals(new Double(new BigDecimal(salesTaxesValue).doubleValue()),
-				new Double(totalSalesTaxes.doubleValue()));
+			final BigDecimal totalSalesTaxes = output.getTotalSalesTaxes();
+			assertEquals(new Double(new BigDecimal(salesTaxesValue).doubleValue()),
+					new Double(totalSalesTaxes.doubleValue()));
 
-		log.info("Sales Taxes:" + totalSalesTaxes);
+			log.info("Sales Taxes:" + totalSalesTaxes);
 
-		final BigDecimal total = output.getTotal();
-		assertEquals(new Double(new BigDecimal(totalValue).doubleValue()), new Double(total.doubleValue()));
+			final BigDecimal total = output.getTotal();
+			assertEquals(new Double(new BigDecimal(totalValue).doubleValue()), new Double(total.doubleValue()));
 
-		log.info("Total:" + total);
-
-		log.info("*****TEST END*****");
+			log.info("Total:" + total);
+		} finally {
+			log.info("*****TEST END*****");
+		}
 	}
 
 }
