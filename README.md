@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pacciu/salestaxes.svg?branch=master)](https://travis-ci.org/pacciu/salestaxes)
+
 # salestaxes
 Test exercise.
 
@@ -27,7 +29,4 @@ There is also an happy test having a shopping basket with:
 - an item with quantity 2
 - all items with no taxes
 
-There is a bad test with an item with negative price and shoulds throw a [Negative Price Exception](src/main/java/com/lastminute/marcoluly/exceptions/NotNegativePriceException.java)
-
-### Travis Build Status
-[![Build Status](https://travis-ci.org/pacciu/salestaxes.svg?branch=master)](https://travis-ci.org/pacciu/salestaxes)
+Thus, there is a bad test with an item with negative price and shoulds throw a [Negative Price Exception](src/main/java/com/lastminute/marcoluly/exceptions/NotNegativePriceException.java)
