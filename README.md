@@ -4,6 +4,7 @@ Test exercise.
 WARNING: at version 1.0.0 it could be run only with activeProfile mock. There is no default implementation for TaxRepository.
 
 PROBLEM: SALES TAXES
+
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical 
 products that are exempt. Import duty is an additional sales tax applicable on all imported goods
 at a rate of 5%, with no exemptions.
@@ -11,6 +12,9 @@ When I purchase items I receive a receipt which lists the name of all the items 
 (including tax), finishing with the total cost of the items, and the total amounts of sales taxes 
 paid. The rounding rules for sales tax are that for a tax rate of n%, a shelf price of p contains 
 (np/100 rounded up to the nearest 0.05) amount of sales tax.
+
+This application builds a receipt details with shopping baskets respecting the above contraints.
+
 
 # salestaxes test file
 [Test file](src/test/java/com/lastminute/marcoluly/SalestaxesApplicationTests.java) has 3 happy tests having differents shopping baskets with:
