@@ -15,7 +15,7 @@ When I purchase items I receive a receipt which lists the name of all the items 
 paid. The rounding rules for sales tax are that for a tax rate of n%, a shelf price of p contains 
 (np/100 rounded up to the nearest 0.05) amount of sales tax.
 
-This application builds a receipt details with shopping baskets respecting the above contraints.
+This application builds a receipt with shopping baskets respecting the above constraints.
 
 
 # salestaxes test file
