@@ -21,7 +21,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.common.collect.Maps;
-import com.lastminute.marcoluly.execptions.NotNegativePriceException;
+import com.lastminute.marcoluly.exceptions.NotNegativePriceException;
 import com.lastminute.marcoluly.model.Product;
 import com.lastminute.marcoluly.model.ProductWithFinalPrice;
 import com.lastminute.marcoluly.model.Receipt;

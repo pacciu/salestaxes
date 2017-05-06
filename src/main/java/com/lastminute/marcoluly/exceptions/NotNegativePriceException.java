@@ -1,4 +1,4 @@
-package com.lastminute.marcoluly.execptions;
+package com.lastminute.marcoluly.exceptions;
 
 public class NotNegativePriceException extends Exception {
 
