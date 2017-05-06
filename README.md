@@ -3,7 +3,7 @@
 # salestaxes
 Test exercise.
 
-WARNING: at version 1.0.0 it could be run only with activeProfile mock. There is no default implementation for TaxRepository.
+WARNING: at version 1.0.0 it could be run only with activeProfile mock (implemented only in src/test). There is no default implementation for TaxRepository.
 
 PROBLEM: SALES TAXES
 
